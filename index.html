@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cucharita Feliz</title>
+    <!-- Tipografía redondeada similar al diseño -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Iconos (FontAwesome) -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- ENCABEZADO / MAPA DEL SITIO -->
+
+    <!-- CONTENEDOR DINÁMICO DE VISTAS (VACÍO POR AHORA) -->
+    <main id="app-content" class="view-container">
+      <section id="view-inicio" class="view-section active" data-title="Inicio">
+        <!-- Barra superior de la página -->
+        <div class="site-navbar">
+          <div class="nav-brand" data-route="inicio">
+            <i class="fa-solid fa-spoon"></i>
+            <span
+              ><strong>Cucharita</strong> <em class="text-pink">Feliz</em></span
+            >
+          </div>
+
+          <div class="nav-links">
+            <button class="nav-link active" data-route="inicio">Inicio</button>
+            <button class="nav-link" data-route="catalogo">Catálogo</button>
+            <button class="nav-link" data-route="nosotros">Nosotros</button>
+            <button class="nav-link" data-route="contacto">Contacto</button>
+          </div>
+
+          <div class="nav-actions">
+            <button class="icon-btn" title="Mi cuenta">
+              <i class="fa-regular fa-user"></i>
+            </button>
+            <button
+              class="icon-btn cart-btn"
+              data-route="carrito"
+              title="Ver carrito"
+            >
+              <i class="fa-solid fa-cart-shopping"></i>
+              <span class="cart-badge" id="cart-count">0</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Banner Principal (Hero) -->
+        <div class="hero-banner">
+          <div class="hero-info">
+            <h1>Postres que hacen más feliz tu día</h1>
+            <p>Tortas, postres en vaso, cupcakes y más</p>
+            <button class="btn-pink" data-route="catalogo">
+              Ver catálogo <i class="fa-solid fa-chevron-right"></i>
+            </button>
+          </div>
+          <div class="hero-visual">
+            <div class="hero-plate">
+              <i class="fa-solid fa-cake-candles"></i>
+              <span>Torta Especial de Chocolate</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sección Nuestros Destacados -->
+        <div class="featured-section">
+          <h2 class="section-divider"><span>Nuestros destacados</span></h2>
+          <div class="featured-grid" id="featured-list">
+            <!-- Se llena automáticamente desde script.js -->
+          </div>
+        </div>
+      </section>
+      <section
+        id="view-catalogo"
+        class="view-section"
+        data-title="Catálogo"
+      ></section>
+      <section
+        id="view-detalle"
+        class="view-section"
+        data-title="Detalle del Producto"
+      ></section>
+      <section
+        id="view-carrito"
+        class="view-section"
+        data-title="Carrito"
+      ></section>
+      <section
+        id="view-pedido"
+        class="view-section"
+        data-title="Finalizar Pedido"
+      ></section>
+      <section
+        id="view-nosotros"
+        class="view-section"
+        data-title="Nosotros"
+      ></section>
+      <section
+        id="view-contacto"
+        class="view-section"
+        data-title="Contacto"
+      ></section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
