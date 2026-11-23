@@ -119,6 +119,22 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const childCards = document.querySelectorAll('.child-card');
   const viewSections = document.querySelectorAll('.view-section');
+  // Manejo del formulario de Contacto
+  const contactForm = document.getElementById('contact-form');
+  if (contactForm) {
+    contactForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const nombre = document.getElementById('contact-nombre').value.trim();
+      const feedback = document.getElementById('contact-feedback');
+
+      feedback.textContent = `¡Gracias ${nombre}! Hemos recibido tu mensaje.`;
+      contactForm.reset();
+
+      setTimeout(() => {
+        feedback.textContent = '';
+      }, 4000);
+    });
+  }
 
 
   // FORMATO DE PRECIOS

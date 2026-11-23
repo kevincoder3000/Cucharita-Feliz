@@ -141,9 +141,93 @@
 
       <section
         id="view-catalogo"
-        class="view-section"
+        class="view-section catalog-window"
         data-title="Catálogo"
-      ></section>
+      >
+        <!-- Barra superior de la página -->
+        <div class="site-navbar">
+          <div class="nav-brand" data-route="inicio">
+            <div class="logo-spoon-sm">
+              <div class="spoon-head-sm">
+                <span class="eye left"></span>
+                <span class="eye right"></span>
+                <span class="smile"></span>
+              </div>
+              <div class="spoon-handle-sm"></div>
+            </div>
+            <div class="nav-brand-stack">
+              <strong>Cucharita</strong>
+              <em class="text-pink">Feliz</em>
+            </div>
+          </div>
+
+          <div class="nav-links">
+            <button class="nav-link" data-route="inicio">Inicio</button>
+            <button class="nav-link active" data-route="catalogo">
+              Catálogo
+            </button>
+            <button class="nav-link" data-route="nosotros">Nosotros</button>
+            <button class="nav-link" data-route="contacto">Contacto</button>
+          </div>
+
+          <div class="nav-actions">
+            <button class="icon-btn" title="Mi cuenta">
+              <i class="fa-regular fa-user"></i>
+            </button>
+            <button
+              class="icon-btn cart-btn"
+              data-route="carrito"
+              title="Ver carrito"
+            >
+              <i class="fa-solid fa-cart-shopping"></i>
+              <span class="cart-badge" id="cart-count-catalogo">0</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Contenedor principal: Sidebar Categorías + Cuadrícula de Postres -->
+        <div class="catalog-layout">
+          <!-- Barra lateral izquierda -->
+          <aside class="catalog-sidebar">
+            <div class="sidebar-header">Categorías</div>
+            <ul class="category-list" id="category-list">
+              <li class="category-item active" data-category="Todos">
+                <i class="fa-solid fa-border-all"></i>
+                <span>Todos</span>
+              </li>
+              <li class="category-item" data-category="Tortas">
+                <i class="fa-solid fa-cake-candles"></i>
+                <span>Tortas</span>
+              </li>
+              <li class="category-item" data-category="Postres en vaso">
+                <i class="fa-solid fa-ice-cream"></i>
+                <span>Postres en vaso</span>
+              </li>
+              <li class="category-item" data-category="Cupcakes">
+                <i class="fa-solid fa-muffin"></i>
+                <!-- Si tu versión gratuita de FA no muestra fa-muffin, usa fa-cookie-bite -->
+                <span>Cupcakes</span>
+              </li>
+              <li class="category-item" data-category="Galletas">
+                <i class="fa-solid fa-cookie-bite"></i>
+                <span>Galletas</span>
+              </li>
+              <li class="category-item" data-category="Otros">
+                <i class="fa-regular fa-star"></i>
+                <span>Otros</span>
+              </li>
+            </ul>
+          </aside>
+
+          <!-- Área derecha de productos -->
+          <div class="catalog-main">
+            <h2 class="catalog-title">Catálogo de Postres</h2>
+            <div class="catalog-grid" id="catalog-grid">
+              <!-- Se llena dinámicamente desde script.js -->
+            </div>
+          </div>
+        </div>
+      </section>
       <section
         id="view-detalle"
         class="view-section"
@@ -151,9 +235,82 @@
       ></section>
       <section
         id="view-carrito"
-        class="view-section"
+        class="view-section catalog-window"
         data-title="Carrito"
-      ></section>
+      >
+        <!-- Pestaña superior estilo ventana + Botón Volver -->
+        <div class="window-top-bar">
+          <div class="window-tab-badge">4. Carrito de Compras</div>
+          <button
+            class="btn-back"
+            data-route="catalogo"
+            title="Volver al catálogo"
+          >
+            <i class="fa-solid fa-arrow-left"></i> Volver
+          </button>
+        </div>
+
+        <!-- Barra superior de la página -->
+        <div class="site-navbar">
+          <div class="nav-brand" data-route="inicio">
+            <div class="logo-spoon-sm">
+              <div class="spoon-head-sm">
+                <span class="eye left"></span>
+                <span class="eye right"></span>
+                <span class="smile"></span>
+              </div>
+              <div class="spoon-handle-sm"></div>
+            </div>
+            <div class="nav-brand-stack">
+              <strong>Cucharita</strong>
+              <em class="text-pink">Feliz</em>
+            </div>
+          </div>
+
+          <div class="nav-links">
+            <button class="nav-link" data-route="inicio">Inicio</button>
+            <button class="nav-link" data-route="catalogo">Catálogo</button>
+            <button class="nav-link" data-route="nosotros">Nosotros</button>
+            <button class="nav-link" data-route="contacto">Contacto</button>
+          </div>
+
+          <div class="nav-actions">
+            <button class="icon-btn" title="Mi cuenta">
+              <i class="fa-regular fa-user"></i>
+            </button>
+            <button
+              class="icon-btn cart-btn"
+              data-route="carrito"
+              title="Ver carrito"
+            >
+              <i class="fa-solid fa-cart-shopping"></i>
+              <span class="cart-badge">0</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Contenido principal del Carrito -->
+        <div class="cart-container">
+          <h2 class="cart-title">Tu carrito</h2>
+
+          <!-- Lista dinámica de productos agregados -->
+          <div class="cart-items-list" id="cart-items-list">
+            <!-- Se llena automáticamente desde script.js -->
+          </div>
+
+          <!-- Pie del carrito (Total + Botón Finalizar pedido) -->
+          <div class="cart-summary" id="cart-summary">
+            <div class="cart-total-bar">
+              <span class="total-label">Total:</span>
+              <span class="total-amount" id="cart-total-amount">S/ 0.00</span>
+            </div>
+
+            <button class="btn-checkout" data-route="pedido">
+              Finalizar pedido <i class="fa-solid fa-chevron-right"></i>
+            </button>
+          </div>
+        </div>
+      </section>
       <section
         id="view-pedido"
         class="view-section"
@@ -161,14 +318,238 @@
       ></section>
       <section
         id="view-nosotros"
-        class="view-section"
+        class="view-section catalog-window"
         data-title="Nosotros"
-      ></section>
+      >
+        <!-- Barra superior de la página -->
+        <div class="site-navbar">
+          <div class="nav-brand" data-route="inicio">
+            <div class="logo-spoon-sm">
+              <div class="spoon-head-sm">
+                <span class="eye left"></span>
+                <span class="eye right"></span>
+                <span class="smile"></span>
+              </div>
+              <div class="spoon-handle-sm"></div>
+            </div>
+            <div class="nav-brand-stack">
+              <strong>Cucharita</strong>
+              <em class="text-pink">Feliz</em>
+            </div>
+          </div>
+
+          <div class="nav-links">
+            <button class="nav-link" data-route="inicio">Inicio</button>
+            <button class="nav-link" data-route="catalogo">Catálogo</button>
+            <button class="nav-link active" data-route="nosotros">
+              Nosotros
+            </button>
+            <button class="nav-link" data-route="contacto">Contacto</button>
+          </div>
+
+          <div class="nav-actions">
+            <button class="icon-btn" title="Mi cuenta">
+              <i class="fa-regular fa-user"></i>
+            </button>
+            <button
+              class="icon-btn cart-btn"
+              data-route="carrito"
+              title="Ver carrito"
+            >
+              <i class="fa-solid fa-cart-shopping"></i>
+              <span class="cart-badge">0</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Contenido principal: Imagen + Texto "Sobre Nosotros" -->
+        <div class="about-hero">
+          <div class="about-image-box">
+            <!-- Cuando tengas la foto real de los cupcakes, reemplaza el icono por:
+           <img src="img/nosotros-cupcakes.jpg" alt="Cupcakes Cucharita Feliz"> -->
+            <i class="fa-solid fa-cake-candles"></i>
+          </div>
+
+          <div class="about-content">
+            <h2 class="about-title">
+              Sobre Nosotros <i class="fa-regular fa-heart"></i>
+            </h2>
+            <p class="about-description">
+              Somos Cucharita Feliz, un emprendimiento dedicado a endulzar tus
+              momentos especiales con postres caseros, frescos y elaborados con
+              ingredientes de calidad.
+            </p>
+          </div>
+        </div>
+
+        <!-- Tres tarjetas de valores inferiores -->
+        <div class="about-values-grid">
+          <article class="value-card">
+            <i class="fa-solid fa-cookie-bite"></i>
+            <span>Calidad<br />casera</span>
+          </article>
+
+          <article class="value-card">
+            <i class="fa-regular fa-heart"></i>
+            <span>Pasión<br />por lo dulce</span>
+          </article>
+
+          <article class="value-card">
+            <i class="fa-solid fa-leaf"></i>
+            <span>Ingredientes<br />frescos</span>
+          </article>
+        </div>
+      </section>
       <section
         id="view-contacto"
-        class="view-section"
+        class="view-section catalog-window"
         data-title="Contacto"
-      ></section>
+      >
+        <!-- Pestaña superior estilo ventana + Botón Volver -->
+        <div class="window-top-bar">
+          <div class="window-tab-badge">7. Contacto</div>
+          <button class="btn-back" data-route="inicio" title="Volver a Inicio">
+            <i class="fa-solid fa-arrow-left"></i> Volver
+          </button>
+        </div>
+
+        <!-- Barra superior de la página -->
+        <div class="site-navbar">
+          <div class="nav-brand" data-route="inicio">
+            <div class="logo-spoon-sm">
+              <div class="spoon-head-sm">
+                <span class="eye left"></span>
+                <span class="eye right"></span>
+                <span class="smile"></span>
+              </div>
+              <div class="spoon-handle-sm"></div>
+            </div>
+            <div class="nav-brand-stack">
+              <strong>Cucharita</strong>
+              <em class="text-pink">Feliz</em>
+            </div>
+          </div>
+
+          <div class="nav-links">
+            <button class="nav-link" data-route="inicio">Inicio</button>
+            <button class="nav-link" data-route="catalogo">Catálogo</button>
+            <button class="nav-link" data-route="nosotros">Nosotros</button>
+            <button class="nav-link active" data-route="contacto">
+              Contacto
+            </button>
+          </div>
+
+          <div class="nav-actions">
+            <button class="icon-btn" title="Mi cuenta">
+              <i class="fa-regular fa-user"></i>
+            </button>
+            <button
+              class="icon-btn cart-btn"
+              data-route="carrito"
+              title="Ver carrito"
+            >
+              <i class="fa-solid fa-cart-shopping"></i>
+              <span class="cart-badge">0</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Título con líneas decorativas -->
+        <div class="contact-header">
+          <div class="title-sparkles">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+          <h2>Contáctanos</h2>
+        </div>
+
+        <!-- Contenido principal: Datos a la izquierda + Formulario a la derecha -->
+        <div class="contact-layout">
+          <!-- Columna izquierda: Información y redes -->
+          <div class="contact-info">
+            <ul class="contact-details">
+              <li>
+                <i class="fa-solid fa-phone"></i>
+                <span>+51 987 654 321</span>
+              </li>
+              <li>
+                <i class="fa-regular fa-envelope"></i>
+                <span>info@cucharitafeliz.pe</span>
+              </li>
+              <li>
+                <i class="fa-solid fa-location-dot"></i>
+                <span>Lima, Perú</span>
+              </li>
+            </ul>
+
+            <div class="social-links">
+              <a
+                href="#"
+                class="social-circle ig"
+                aria-label="Instagram"
+                title="Instagram"
+              >
+                <i class="fa-brands fa-instagram"></i>
+              </a>
+              <a
+                href="#"
+                class="social-circle fb"
+                aria-label="Facebook"
+                title="Facebook"
+              >
+                <i class="fa-brands fa-facebook-f"></i>
+              </a>
+              <a
+                href="#"
+                class="social-circle tt"
+                aria-label="TikTok"
+                title="TikTok"
+              >
+                <i class="fa-brands fa-tiktok"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Columna derecha: Formulario -->
+          <form class="contact-form" id="contact-form">
+            <div class="input-group">
+              <i class="fa-regular fa-user"></i>
+              <input
+                type="text"
+                id="contact-nombre"
+                placeholder="Nombre"
+                required
+              />
+            </div>
+
+            <div class="input-group">
+              <i class="fa-regular fa-envelope"></i>
+              <input
+                type="email"
+                id="contact-correo"
+                placeholder="Correo"
+                required
+              />
+            </div>
+
+            <div class="input-group textarea-group">
+              <i class="fa-regular fa-comment-dots"></i>
+              <textarea
+                id="contact-mensaje"
+                rows="4"
+                placeholder="Mensaje"
+                required
+              ></textarea>
+            </div>
+
+            <button type="submit" class="btn-send-contact">
+              <i class="fa-regular fa-paper-plane"></i> Enviar
+            </button>
+            <p class="contact-feedback" id="contact-feedback"></p>
+          </form>
+        </div>
+      </section>
     </main>
 
     <script src="script.js"></script>
