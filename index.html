@@ -31,6 +31,10 @@
             <span
               ><strong>Cucharita</strong> <em class="text-pink">Feliz</em></span
             >
+            <!-- AGREGADO: eslogan -->
+            <small class="brand-slogan">
+              Una cucharada de felicidad en cada antojo
+            </small>
           </div>
 
           <div class="nav-links">
@@ -41,6 +45,11 @@
           </div>
 
           <div class="nav-actions">
+            <!-- AGREGADO: botón de búsqueda -->
+            <button class="icon-btn" title="Buscar" data-route="catalogo">
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+
             <button class="icon-btn" title="Mi cuenta">
               <i class="fa-regular fa-user"></i>
             </button>
@@ -58,28 +67,78 @@
         <!-- Banner Principal (Hero) -->
         <div class="hero-banner">
           <div class="hero-info">
-            <h1>Postres que hacen más feliz tu día</h1>
-            <p>Tortas, postres en vaso, cupcakes y más</p>
+            <h1>
+              Postres que
+              <span class="text-pink">endulzan tu día</span>
+            </h1>
+
+            <p>
+              Deliciosos postres artesanales,<br />
+              ideales para compartir.
+            </p>
+
             <button class="btn-pink" data-route="catalogo">
-              Ver catálogo <i class="fa-solid fa-chevron-right"></i>
+              <i class="fa-solid fa-cart-shopping"></i>
+              Comprar ahora
             </button>
+
+            <!-- AGREGADO: decoración de corazón -->
+            <i class="fa-regular fa-heart hero-heart"></i>
           </div>
+
           <div class="hero-visual">
             <div class="hero-plate">
               <i class="fa-solid fa-cake-candles"></i>
               <span>Torta Especial de Chocolate</span>
             </div>
+
+            <!-- AGREGADO: imagen principal -->
+            <img
+              src="img/hero-postres.png"
+              alt="Postres artesanales de Cucharita Feliz"
+              class="hero-image"
+            />
           </div>
         </div>
 
         <!-- Sección Nuestros Destacados -->
         <div class="featured-section">
-          <h2 class="section-divider"><span>Nuestros destacados</span></h2>
+          <h2 class="section-divider">
+            <i class="fa-solid fa-cupcake"></i>
+            <span>Postres destacados</span>
+          </h2>
+
           <div class="featured-grid" id="featured-list">
             <!-- Se llena automáticamente desde script.js -->
           </div>
+
+          <!-- AGREGADO: indicadores decorativos -->
+          <div class="slider-dots">
+            <span class="active"></span>
+            <span></span>
+            <span></span>
+          </div>
+        </div>
+
+        <!-- AGREGADO: beneficios de la tienda -->
+        <div class="benefits-bar">
+          <div class="benefit-item">
+            <i class="fa-solid fa-cake-candles"></i>
+            <strong>Postres<br />artesanales</strong>
+          </div>
+
+          <div class="benefit-item">
+            <i class="fa-solid fa-truck-fast"></i>
+            <strong>Delivery a<br />toda Lima</strong>
+          </div>
+
+          <div class="benefit-item">
+            <i class="fa-regular fa-credit-card"></i>
+            <strong>Pagos<br />seguros</strong>
+          </div>
         </div>
       </section>
+
       <section
         id="view-catalogo"
         class="view-section"
