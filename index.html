@@ -21,49 +21,46 @@
   <body>
     <!-- ENCABEZADO / MAPA DEL SITIO -->
 
+    <!-- Barra superior de la página -->
+    <div class="site-navbar">
+      <div class="nav-brand" data-route="inicio">
+        <i class="fa-solid fa-spoon"></i>
+        <span><strong>Cucharita</strong> <em class="text-pink">Feliz</em></span>
+        <!-- AGREGADO: eslogan -->
+        <small class="brand-slogan">
+          Una cucharada de felicidad en cada antojo
+        </small>
+      </div>
+
+      <div class="nav-links">
+        <button class="nav-link active" data-route="inicio">Inicio</button>
+        <button class="nav-link" data-route="catalogo">Catálogo</button>
+        <button class="nav-link" data-route="nosotros">Nosotros</button>
+        <button class="nav-link" data-route="contacto">Contacto</button>
+      </div>
+
+      <div class="nav-actions">
+        <!-- AGREGADO: botón de búsqueda -->
+        <button class="icon-btn" title="Buscar" data-route="catalogo">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
+
+        <button class="icon-btn" title="Mi cuenta">
+          <i class="fa-regular fa-user"></i>
+        </button>
+        <button
+          class="icon-btn cart-btn"
+          data-route="carrito"
+          title="Ver carrito"
+        >
+          <i class="fa-solid fa-cart-shopping"></i>
+          <span class="cart-badge" id="cart-count">0</span>
+        </button>
+      </div>
+    </div>
     <!-- CONTENEDOR DINÁMICO DE VISTAS (VACÍO POR AHORA) -->
     <main id="app-content" class="view-container">
       <section id="view-inicio" class="view-section active" data-title="Inicio">
-        <!-- Barra superior de la página -->
-        <div class="site-navbar">
-          <div class="nav-brand" data-route="inicio">
-            <i class="fa-solid fa-spoon"></i>
-            <span
-              ><strong>Cucharita</strong> <em class="text-pink">Feliz</em></span
-            >
-            <!-- AGREGADO: eslogan -->
-            <small class="brand-slogan">
-              Una cucharada de felicidad en cada antojo
-            </small>
-          </div>
-
-          <div class="nav-links">
-            <button class="nav-link active" data-route="inicio">Inicio</button>
-            <button class="nav-link" data-route="catalogo">Catálogo</button>
-            <button class="nav-link" data-route="nosotros">Nosotros</button>
-            <button class="nav-link" data-route="contacto">Contacto</button>
-          </div>
-
-          <div class="nav-actions">
-            <!-- AGREGADO: botón de búsqueda -->
-            <button class="icon-btn" title="Buscar" data-route="catalogo">
-              <i class="fa-solid fa-magnifying-glass"></i>
-            </button>
-
-            <button class="icon-btn" title="Mi cuenta">
-              <i class="fa-regular fa-user"></i>
-            </button>
-            <button
-              class="icon-btn cart-btn"
-              data-route="carrito"
-              title="Ver carrito"
-            >
-              <i class="fa-solid fa-cart-shopping"></i>
-              <span class="cart-badge" id="cart-count">0</span>
-            </button>
-          </div>
-        </div>
-
         <!-- Banner Principal (Hero) -->
         <div class="hero-banner">
           <div class="hero-info">
@@ -144,47 +141,6 @@
         class="view-section catalog-window"
         data-title="Catálogo"
       >
-        <!-- Barra superior de la página -->
-        <div class="site-navbar">
-          <div class="nav-brand" data-route="inicio">
-            <div class="logo-spoon-sm">
-              <div class="spoon-head-sm">
-                <span class="eye left"></span>
-                <span class="eye right"></span>
-                <span class="smile"></span>
-              </div>
-              <div class="spoon-handle-sm"></div>
-            </div>
-            <div class="nav-brand-stack">
-              <strong>Cucharita</strong>
-              <em class="text-pink">Feliz</em>
-            </div>
-          </div>
-
-          <div class="nav-links">
-            <button class="nav-link" data-route="inicio">Inicio</button>
-            <button class="nav-link active" data-route="catalogo">
-              Catálogo
-            </button>
-            <button class="nav-link" data-route="nosotros">Nosotros</button>
-            <button class="nav-link" data-route="contacto">Contacto</button>
-          </div>
-
-          <div class="nav-actions">
-            <button class="icon-btn" title="Mi cuenta">
-              <i class="fa-regular fa-user"></i>
-            </button>
-            <button
-              class="icon-btn cart-btn"
-              data-route="carrito"
-              title="Ver carrito"
-            >
-              <i class="fa-solid fa-cart-shopping"></i>
-              <span class="cart-badge" id="cart-count-catalogo">0</span>
-            </button>
-          </div>
-        </div>
-
         <!-- Contenedor principal: Sidebar Categorías + Cuadrícula de Postres -->
         <div class="catalog-layout">
           <!-- Barra lateral izquierda -->

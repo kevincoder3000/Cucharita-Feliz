@@ -24,8 +24,7 @@ const PRODUCTOS_POSTRES = [
     porciones: '8 porciones',
     conservantes: 'Sin conservantes',
     destacado: false,
-    descripcion:
-      'Bizcocho suave con crema fresca y fresas seleccionadas.'
+    descripcion: 'Bizcocho suave con crema fresca y fresas seleccionadas.'
   },
   {
     id: 3,
@@ -46,8 +45,7 @@ const PRODUCTOS_POSTRES = [
     porciones: '1 porción',
     conservantes: 'Sin conservantes',
     destacado: true,
-    descripcion:
-      'Cupcake artesanal de vainilla coronado con crema batida.'
+    descripcion: 'Cupcake artesanal de vainilla coronado con crema batida.'
   },
   {
     id: 5,
@@ -57,8 +55,7 @@ const PRODUCTOS_POSTRES = [
     porciones: '1 porción',
     conservantes: 'Sin conservantes',
     destacado: false,
-    descripcion:
-      'Cupcake intenso de cacao con cubierta cremosa de chocolate.'
+    descripcion: 'Cupcake intenso de cacao con cubierta cremosa de chocolate.'
   },
   {
     id: 6,
@@ -79,11 +76,9 @@ const PRODUCTOS_POSTRES = [
     porciones: '1 porción',
     conservantes: 'Sin conservantes',
     destacado: true,
-    descripcion:
-      'Brownie húmedo por dentro y ligeramente crocante por fuera.'
+    descripcion: 'Brownie húmedo por dentro y ligeramente crocante por fuera.'
   }
 ];
-
 
 /* =========================================
    IMÁGENES DE LOS PRODUCTOS
@@ -99,7 +94,6 @@ const IMAGENES_POSTRES = {
   7: 'img/brownie.png'
 };
 
-
 /* =========================================
    VARIABLES DEL CARRITO Y FAVORITOS
    ========================================= */
@@ -108,16 +102,15 @@ let carrito = [];
 let favoritos = [];
 let productoSeleccionado = 1;
 
-
 /* =========================================
    FUNCIONES PRINCIPALES
    ========================================= */
 
 document.addEventListener('DOMContentLoaded', () => {
-
   // ELEMENTOS DE NAVEGACIÓN ORIGINALES
 
   const childCards = document.querySelectorAll('.child-card');
+  const navItems = document.querySelectorAll('.nav-link[data-route]');
   const viewSections = document.querySelectorAll('.view-section');
   // Manejo del formulario de Contacto
   const contactForm = document.getElementById('contact-form');
@@ -136,13 +129,11 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-
   // FORMATO DE PRECIOS
 
   function formatoPrecio(precio) {
     return 'S/ ' + precio.toFixed(2);
   }
-
 
   // BUSCAR PRODUCTO POR ID
 
@@ -150,18 +141,15 @@ document.addEventListener('DOMContentLoaded', () => {
     return PRODUCTOS_POSTRES.find((producto) => producto.id === id);
   }
 
-
   // OBTENER IMAGEN
 
   function obtenerImagen(id) {
     return IMAGENES_POSTRES[id];
   }
 
-
   // CREAR TARJETA DE PRODUCTO
 
   function crearTarjeta(postre) {
-
     const favorito = favoritos.includes(postre.id);
 
     return `
@@ -215,13 +203,11 @@ document.addEventListener('DOMContentLoaded', () => {
     `;
   }
 
-
   /* =========================================
      MOSTRAR PRODUCTOS DESTACADOS
      ========================================= */
 
   function renderDestacados() {
-
     const container = document.getElementById('featured-list');
 
     if (!container) return;
@@ -236,16 +222,13 @@ document.addEventListener('DOMContentLoaded', () => {
     container.innerHTML = destacados
       .map((postre) => crearTarjeta(postre))
       .join('');
-
   }
-
 
   /* =========================================
      MOSTRAR CATÁLOGO
      ========================================= */
 
   function renderCatalogo() {
-
     const container = document.getElementById('view-catalogo');
 
     if (!container) return;
@@ -281,26 +264,22 @@ document.addEventListener('DOMContentLoaded', () => {
 
     mostrarProductosCatalogo(PRODUCTOS_POSTRES);
 
-    document.getElementById('buscar-postre')
-      .addEventListener('input', function() {
-
+    document
+      .getElementById('buscar-postre')
+      .addEventListener('input', function () {
         const texto = this.value.toLowerCase();
 
-        const resultados = PRODUCTOS_POSTRES.filter(
-          (postre) => postre.nombre.toLowerCase().includes(texto)
+        const resultados = PRODUCTOS_POSTRES.filter((postre) =>
+          postre.nombre.toLowerCase().includes(texto)
         );
 
         mostrarProductosCatalogo(resultados);
-
       });
-
   }
-
 
   // FILTRAR PRODUCTOS DEL CATÁLOGO
 
   function mostrarProductosCatalogo(lista) {
-
     const container = document.getElementById('lista-catalogo');
 
     if (!container) return;
@@ -310,19 +289,14 @@ document.addEventListener('DOMContentLoaded', () => {
       return;
     }
 
-    container.innerHTML = lista
-      .map((postre) => crearTarjeta(postre))
-      .join('');
-
+    container.innerHTML = lista.map((postre) => crearTarjeta(postre)).join('');
   }
-
 
   /* =========================================
      DETALLE DEL PRODUCTO
      ========================================= */
 
   function renderDetalle() {
-
     const postre = buscarProducto(productoSeleccionado);
 
     if (!postre) return;
@@ -387,50 +361,38 @@ document.addEventListener('DOMContentLoaded', () => {
 
       </div>
     `;
-
   }
-
 
   /* =========================================
      AGREGAR AL CARRITO
      ========================================= */
 
   function agregarCarrito(id) {
-
     const postre = buscarProducto(id);
 
     if (!postre) return;
 
-    const existente = carrito.find(
-      (item) => item.id === id
-    );
+    const existente = carrito.find((item) => item.id === id);
 
     if (existente) {
-
       existente.cantidad++;
-
     } else {
-
       carrito.push({
         id: id,
         cantidad: 1
       });
-
     }
 
     actualizarContador();
 
     alert(postre.nombre + ' agregado al carrito');
-
   }
-
 
   /* =========================================
      ACTUALIZAR CONTADOR
      ========================================= */
 
   function actualizarContador() {
-
     let cantidad = 0;
 
     carrito.forEach((item) => {
@@ -442,16 +404,13 @@ document.addEventListener('DOMContentLoaded', () => {
     if (contador) {
       contador.textContent = cantidad;
     }
-
   }
-
 
   /* =========================================
      MOSTRAR CARRITO
      ========================================= */
 
   function renderCarrito() {
-
     const container = document.getElementById('view-carrito');
 
     if (!container) return;
@@ -462,7 +421,6 @@ document.addEventListener('DOMContentLoaded', () => {
     `;
 
     if (carrito.length === 0) {
-
       contenido += `
         <p style="margin:20px 0;">
           Tu carrito está vacío.
@@ -472,13 +430,10 @@ document.addEventListener('DOMContentLoaded', () => {
           Ver catálogo
         </button>
       `;
-
     } else {
-
       let total = 0;
 
       carrito.forEach((item) => {
-
         const postre = buscarProducto(item.id);
 
         const subtotal = postre.precio * item.cantidad;
@@ -519,7 +474,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
           </div>
         `;
-
       });
 
       contenido += `
@@ -531,74 +485,50 @@ document.addEventListener('DOMContentLoaded', () => {
           Finalizar pedido
         </button>
       `;
-
     }
 
     contenido += '</div>';
 
     container.innerHTML = contenido;
-
   }
-
 
   /* =========================================
      MODIFICAR CANTIDADES
      ========================================= */
 
   function cambiarCantidad(id, cambio) {
-
-    const item = carrito.find(
-      (producto) => producto.id === id
-    );
+    const item = carrito.find((producto) => producto.id === id);
 
     if (!item) return;
 
     item.cantidad += cambio;
 
     if (item.cantidad <= 0) {
-
-      carrito = carrito.filter(
-        (producto) => producto.id !== id
-      );
-
+      carrito = carrito.filter((producto) => producto.id !== id);
     }
 
     actualizarContador();
     renderCarrito();
-
   }
-
 
   // ELIMINAR PRODUCTO
 
   function eliminarProducto(id) {
-
-    carrito = carrito.filter(
-      (producto) => producto.id !== id
-    );
+    carrito = carrito.filter((producto) => producto.id !== id);
 
     actualizarContador();
     renderCarrito();
-
   }
-
 
   /* =========================================
      FAVORITOS
      ========================================= */
 
   function cambiarFavorito(id) {
-
     if (favoritos.includes(id)) {
-
-      favoritos = favoritos.filter(
-        (productoId) => productoId !== id
-      );
-
+      favoritos = favoritos.filter((productoId) => productoId !== id);
     } else {
-
       favoritos.push(id);
-
     }
 
     renderDestacados();
@@ -608,22 +538,19 @@ document.addEventListener('DOMContentLoaded', () => {
       const buscador = document.getElementById('buscar-postre');
       const texto = buscador ? buscador.value.toLowerCase() : '';
 
-      const resultados = PRODUCTOS_POSTRES.filter(
-        (postre) => postre.nombre.toLowerCase().includes(texto)
+      const resultados = PRODUCTOS_POSTRES.filter((postre) =>
+        postre.nombre.toLowerCase().includes(texto)
       );
 
       mostrarProductosCatalogo(resultados);
     }
-
   }
-
 
   /* =========================================
      FINALIZAR PEDIDO
      ========================================= */
 
   function renderPedido() {
-
     const container = document.getElementById('view-pedido');
 
     container.innerHTML = `
@@ -678,16 +605,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
       </div>
     `;
-
   }
-
 
   /* =========================================
      NOSOTROS
      ========================================= */
 
   function renderNosotros() {
-
     document.getElementById('view-nosotros').innerHTML = `
       <div style="padding:30px;">
 
@@ -712,16 +636,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
       </div>
     `;
-
   }
-
 
   /* =========================================
      CONTACTO
      ========================================= */
 
   function renderContacto() {
-
     document.getElementById('view-contacto').innerHTML = `
       <div style="padding:30px;">
 
@@ -771,19 +692,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
       </div>
     `;
-
   }
-
 
   /* =========================================
      NAVEGACIÓN ORIGINAL
      ========================================= */
 
   function navigateTo(routeName) {
-
-    const targetSection = document.getElementById(
-      `view-${routeName}`
-    );
+    const targetSection = document.getElementById(`view-${routeName}`);
 
     if (!targetSection) return;
 
@@ -800,18 +716,21 @@ document.addEventListener('DOMContentLoaded', () => {
     // Actualizar tarjetas del mapa del sitio
 
     childCards.forEach((card) => {
-
       const isMatch = card.dataset.route === routeName;
 
       card.classList.toggle('active', isMatch);
+    });
+    navItems.forEach((item) => {
+      const isMatch = item.dataset.route === routeName;
 
+      item.classList.toggle('active', isMatch);
     });
 
     // Cargar contenido según la sección
 
-    if (routeName === 'catalogo') {
-      renderCatalogo();
-    }
+    // if (routeName === 'catalogo') {
+    //   renderCatalogo();
+    // }
 
     if (routeName === 'detalle') {
       renderDetalle();
@@ -840,126 +759,91 @@ document.addEventListener('DOMContentLoaded', () => {
     // Volver arriba
 
     window.scrollTo(0, 0);
-
   }
-
 
   /* =========================================
      EVENTOS DE BOTONES
      ========================================= */
 
-  document.addEventListener('click', function(evento) {
-
+  document.addEventListener('click', function (evento) {
     // BOTÓN AGREGAR
 
     const botonAgregar = evento.target.closest('[data-agregar]');
 
     if (botonAgregar) {
-
-      agregarCarrito(
-        Number(botonAgregar.dataset.agregar)
-      );
+      agregarCarrito(Number(botonAgregar.dataset.agregar));
 
       return;
     }
-
 
     // VER DETALLE
 
     const botonDetalle = evento.target.closest('[data-detalle]');
 
     if (botonDetalle) {
-
-      productoSeleccionado = Number(
-        botonDetalle.dataset.detalle
-      );
+      productoSeleccionado = Number(botonDetalle.dataset.detalle);
 
       navigateTo('detalle');
       return;
     }
-
 
     // FAVORITOS
 
     const botonFavorito = evento.target.closest('[data-favorito]');
 
     if (botonFavorito) {
-
-      cambiarFavorito(
-        Number(botonFavorito.dataset.favorito)
-      );
+      cambiarFavorito(Number(botonFavorito.dataset.favorito));
 
       return;
     }
-
 
     // SUMAR CANTIDAD
 
     const botonSumar = evento.target.closest('[data-sumar]');
 
     if (botonSumar) {
-
-      cambiarCantidad(
-        Number(botonSumar.dataset.sumar),
-        1
-      );
+      cambiarCantidad(Number(botonSumar.dataset.sumar), 1);
 
       return;
     }
-
 
     // RESTAR CANTIDAD
 
     const botonRestar = evento.target.closest('[data-restar]');
 
     if (botonRestar) {
-
-      cambiarCantidad(
-        Number(botonRestar.dataset.restar),
-        -1
-      );
+      cambiarCantidad(Number(botonRestar.dataset.restar), -1);
 
       return;
     }
-
 
     // ELIMINAR
 
     const botonEliminar = evento.target.closest('[data-eliminar]');
 
     if (botonEliminar) {
-
-      eliminarProducto(
-        Number(botonEliminar.dataset.eliminar)
-      );
+      eliminarProducto(Number(botonEliminar.dataset.eliminar));
 
       return;
     }
-
 
     // NAVEGAR ENTRE SECCIONES
 
     const botonRuta = evento.target.closest('[data-route]');
 
     if (botonRuta) {
-
       navigateTo(botonRuta.dataset.route);
-
     }
-
   });
-
 
   /* =========================================
      EVENTOS DE FORMULARIOS
      ========================================= */
 
-  document.addEventListener('submit', function(evento) {
-
+  document.addEventListener('submit', function (evento) {
     // FORMULARIO DE PEDIDO
 
     if (evento.target.id === 'form-pedido') {
-
       evento.preventDefault();
 
       if (carrito.length === 0) {
@@ -969,7 +853,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       alert(
         'Pedido de demostración registrado. ' +
-        'No se ha enviado ningún pedido real.'
+          'No se ha enviado ningún pedido real.'
       );
 
       carrito = [];
@@ -978,27 +862,21 @@ document.addEventListener('DOMContentLoaded', () => {
       evento.target.reset();
 
       navigateTo('inicio');
-
     }
-
 
     // FORMULARIO DE CONTACTO
 
     if (evento.target.id === 'form-contacto') {
-
       evento.preventDefault();
 
       alert(
         'Mensaje de demostración registrado. ' +
-        'No se ha enviado a ningún correo.'
+          'No se ha enviado a ningún correo.'
       );
 
       evento.target.reset();
-
     }
-
   });
-
 
   /* =========================================
      INICIAR PÁGINA
@@ -1014,5 +892,4 @@ document.addEventListener('DOMContentLoaded', () => {
   if (initialHash) {
     navigateTo(initialHash);
   }
-
 });
